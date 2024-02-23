@@ -1,6 +1,7 @@
 import {
 	Body,
 	Controller,
+	Delete,
 	Get,
 	Post,
 	UsePipes,
@@ -22,5 +23,11 @@ export class UsersController {
 	@UsePipes(new ValidationPipe())
 	async create(@Body() dto: UsersDto) {
 		return this.usersService.create(dto)
+	}
+
+	@Delete()
+	@UsePipes(new ValidationPipe())
+	async delete(@Body() dto: UsersDto) {
+		return this.usersService.delete(dto)
 	}
 }

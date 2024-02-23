@@ -20,7 +20,8 @@ export class AuthService {
 		const payload = {
 			sub: user.id,
 			username: user.username,
-			name: user.name,
+			firstSubject: user.firstSubject,
+			secondSubject: user.secondSubject,
 			isTeacher: user.isTeacher,
 			password: user.password
 		}

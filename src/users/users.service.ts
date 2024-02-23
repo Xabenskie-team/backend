@@ -16,6 +16,14 @@ export class UsersService {
 		})
 	}
 
+	async delete(dto: UsersDto) {
+		return this.prisma.user.delete({
+			where: {
+				id: dto.id
+			}
+		})
+	}
+
 	async findOne(username: string): Promise<UsersDto> {
 		return this.prisma.user.findUnique({
 			where: {

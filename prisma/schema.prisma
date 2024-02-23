@@ -11,9 +11,10 @@ datasource db {
 }
 
 model User {
-  id        Int     @id @default(autoincrement())
-  username  String  @unique
-  isTeacher Boolean @default(false)
-  name      String?
-  password  String?
+  id            Int     @id @default(autoincrement())
+  username      String  @unique
+  isTeacher     Boolean @default(false)
+  firstSubject  String?
+  secondSubject String? @default("")
+  password      String?
 }
