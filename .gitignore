@@ -14,6 +14,9 @@ lerna-debug.log*
 # OS
 .DS_Store
 
+#env
+.env
+
 # Tests
 /coverage
 /.nyc_output
@@ -33,6 +36,3 @@ lerna-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-
-#env
-.env
