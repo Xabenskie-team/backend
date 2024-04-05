@@ -1,6 +1,7 @@
 import {
 	Body,
 	Controller,
+	Get,
 	HttpCode,
 	Post,
 	Req,
@@ -12,6 +13,7 @@ import {
 import { Request, Response } from 'express'
 import { AuthService } from './auth.service'
 import { AuthDto } from './dto/auth.dto'
+import { UserDto } from 'src/user/dto/user.dto'
 
 @Controller('auth')
 export class AuthController {

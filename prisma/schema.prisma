@@ -19,11 +19,10 @@ model User {
   updatedAt DateTime @updatedAt() @map("updated_at")
 
   email    String  @unique
-  name     String?
+  name     String
   password String
 
-  tasks      Task[]
-  timeBlocks TimeBlock[]
+  tasks Task[]
 
   @@map("user")
 }
@@ -35,28 +34,12 @@ model Task {
 
   name        String
   priority    Priority?
-  isCompleted Boolean   @default(false) @map("is_completed")
+  isDone Boolean   @default(false) @map("is_completed")
 
   user   User   @relation(fields: [userId], references: [id])
   userId String @map("user_id")
 
   @@map("task")
-}
-
-model TimeBlock {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt() @map("updated_at")
-
-  name     String
-  color    String?
-  duration Int
-  order    Int     @default(1)
-
-  user   User   @relation(fields: [userId], references: [id])
-  userId String @map("user_id")
-
-  @@map("time_block")
 }
 
 enum Priority {
