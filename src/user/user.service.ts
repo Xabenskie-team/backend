@@ -1,18 +1,17 @@
 import { Injectable } from '@nestjs/common'
 import { hash } from 'argon2'
-import { AuthDto } from 'src/auth/dto/auth.dto'
 import { PrismaService } from 'src/prisma.service'
 import { UserDto } from './dto/user.dto'
-import { startOfDay, subDays } from 'date-fns'
+import { RegDto } from 'src/auth/dto/reg.dto'
 
 @Injectable()
 export class UserService {
 	constructor(private prisma: PrismaService) {}
 
-	async create(dto: AuthDto) {
+	async create(dto: RegDto) {
 		const user = {
 			email: dto.email,
-			name: '',
+			name: dto.name,
 			password: await hash(dto.password)
 		}
 
@@ -66,7 +65,7 @@ export class UserService {
 		const completedTasks = await this.prisma.task.count ({
 			where: {
 				userId: id,
-				isCompleted: true,
+				isDone: true,
 			}
 		})
 
